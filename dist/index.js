@@ -31089,8 +31089,11 @@ async function run() {
     var _a;
     const token = (0, core_1.getInput)("gh-token");
     const label = (0, core_1.getInput)("label");
-    const octokit = (0, github_1.getOctokit)(token);
+    const userToken = (0, core_1.getInput)("user-gh-token");
+    const octokit = (0, github_1.getOctokit)(userToken);
     const pullRequest = github_1.context.payload.pull_request;
+    const userName = await octokit.rest.users.getAuthenticated();
+    console.log("USERNAME:", userName.data);
     try {
         if (!pullRequest) {
             throw new Error("This action can only be run on Pull Requests");
@@ -31102,7 +31105,7 @@ async function run() {
             //   labels: [label],
             body: "Testing this new thing",
             issue_number: pullRequest.number,
-            owner: github_1.context.repo.owner,
+            owner: userName.data.name,
             repo: github_1.context.repo.repo,
         });
     }
