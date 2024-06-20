@@ -31085,6 +31085,45 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.run = run;
 const core_1 = __nccwpck_require__(9093);
 const github_1 = __nccwpck_require__(5942);
+const generateRandomSentence = () => {
+    const emojis = [
+        "🌊",
+        "🔥",
+        "🌟",
+        "🍀",
+        "🌸",
+        "🌈",
+        "🌞",
+        "🌜",
+        "🎉",
+        "🎈",
+        "✨",
+        "💫",
+        "🍕",
+        "🎶",
+        "🎨",
+    ];
+    const variations = [
+        "This is quite nice, but it could use a bit more waves ",
+        "This is fairly nice, but a bit more waves would be good ",
+        "This is lovely, though a tad more waves would make it even better ",
+        "This is nice, yet a bit more waves would knock it out the park! ",
+        "This is rather nice, but a touch more waves I think would rock ",
+        "This is pretty good, but needs a bit more waves ",
+        "This is really nice, but a bit more waves... ",
+        "This is quite good, although it could use more waves, or what? ",
+        "This is awesome, but it could use more waves ",
+        "This is cool, but a bit more waves ",
+        "This is amazing, but needs a bit more waves ",
+        "This is wonderful, yet a bit more waves, THAT would be cool ",
+        "This is splendid, though a touch more waves ",
+        "This is superb, but could use a bit more waves ",
+    ];
+    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+    const randomVariation = variations[Math.floor(Math.random() * variations.length)];
+    return randomVariation + randomEmoji;
+};
+console.log(generateRandomSentence());
 async function run() {
     var _a;
     const token = (0, core_1.getInput)("gh-token");
@@ -31099,11 +31138,7 @@ async function run() {
             throw new Error("This action can only be run on Pull Requests");
         }
         await octokit.rest.issues.createComment({
-            //   owner: context.repo.owner,
-            //   repo: context.repo.repo,
-            //   issue_number: pullRequest.number,
-            //   labels: [label],
-            body: "Testing this new thing",
+            body: generateRandomSentence(),
             issue_number: pullRequest.number,
             owner: github_1.context.repo.owner,
             repo: github_1.context.repo.repo,
