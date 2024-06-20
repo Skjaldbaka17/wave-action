@@ -6,9 +6,9 @@ inputs:
   gh-token:
     description: "The github token injected for the repo"
     required: true
-  # user-gh-token:
-  #   description: "The github token for the commentor"
-  #   required: true
+  user-gh-token:
+    description: "The github token for the commentor"
+    required: true
 
 runs:
   using: "node20"

@@ -4,9 +4,13 @@ import { context, getOctokit } from "@actions/github";
 export async function run() {
   const token = getInput("gh-token");
   const label = getInput("label");
-  // TEST
-  const octokit = getOctokit(token);
+  const userToken = getInput("user-gh-token");
+
+  const octokit = getOctokit(userToken);
   const pullRequest = context.payload.pull_request;
+
+  const userName = await octokit.rest.users.getAuthenticated();
+  console.log("USERNAME:", userName.data);
 
   try {
     if (!pullRequest) {
@@ -20,7 +24,7 @@ export async function run() {
       //   labels: [label],
       body: "Testing this new thing",
       issue_number: pullRequest.number,
-      owner: context.repo.owner,
+      owner: userName.data.name!,
       repo: context.repo.repo,
     });
   } catch (error) {
