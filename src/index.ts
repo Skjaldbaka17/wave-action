@@ -46,19 +46,30 @@ const generateRandomSentence = (): string => {
 console.log(generateRandomSentence());
 
 export async function run() {
-  const token = getInput("gh-token");
-  const label = getInput("label");
+  const userToCommentOn = getInput("user-to-comment-on");
   const userToken = getInput("user-gh-token");
 
   const octokit = getOctokit(userToken);
   const pullRequest = context.payload.pull_request;
 
-  const userName = await octokit.rest.users.getAuthenticated();
-  console.log("USERNAME:", userName.data);
-
   try {
     if (!pullRequest) {
       throw new Error("This action can only be run on Pull Requests");
+    }
+
+    // If only comment on specific user
+    if (userToCommentOn) {
+      const pr = await octokit.rest.pulls.get({
+        pull_number: pullRequest.number,
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+      });
+
+      const creator = pr.data.user.login;
+      if (creator !== userToCommentOn) {
+        console.log("Creator not the same", creator, userToCommentOn);
+        return;
+      }
     }
 
     await octokit.rest.issues.createComment({

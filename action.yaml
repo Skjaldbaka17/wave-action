@@ -3,12 +3,12 @@ description: "Adds comment to user's pr"
 author: "Turtle"
 
 inputs:
-  gh-token:
-    description: "The github token injected for the repo"
-    required: true
   user-gh-token:
     description: "The github token for the commentor"
     required: true
+  user-to-comment-on:
+    description: "The user this action will only comment on prs opened by"
+    required: false
 
 runs:
   using: "node20"
