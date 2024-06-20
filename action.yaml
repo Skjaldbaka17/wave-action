@@ -3,5 +3,5 @@ description: "Adds comment to user's pr"
 author: "Turtle"
 
 runs:
-  using: "node20"
+  using: "node16"
   main: "dist/index.js"
