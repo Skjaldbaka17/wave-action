@@ -31128,6 +31128,7 @@ async function run() {
     var _a;
     const userToCommentOn = (0, core_1.getInput)("user-to-comment-on");
     const userToken = (0, core_1.getInput)("user-gh-token");
+    console.log("USER:", userToCommentOn);
     const octokit = (0, github_1.getOctokit)(userToken);
     const pullRequest = github_1.context.payload.pull_request;
     try {
