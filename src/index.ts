@@ -49,6 +49,8 @@ export async function run() {
   const userToCommentOn = getInput("user-to-comment-on");
   const userToken = getInput("user-gh-token");
 
+  console.log("USER:", userToCommentOn);
+
   const octokit = getOctokit(userToken);
   const pullRequest = context.payload.pull_request;
 

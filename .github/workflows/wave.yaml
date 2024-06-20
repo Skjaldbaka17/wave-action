@@ -11,5 +11,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./
         with:
-          gh-token: ${{ secrets.GITHUB_TOKEN }}
+          user-to-comment-on: ${{ vars.USER_TO_COMMENT_ON }}
           user-gh-token: ${{ secrets.GH_USER_TOKEN }}
