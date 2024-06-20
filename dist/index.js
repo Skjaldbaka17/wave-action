@@ -31132,8 +31132,8 @@ const generateRandomSentence = () => {
     ];
     const randomYoutubeLink = wavesYT[Math.floor(Math.random() * wavesYT.length)];
     const variations = [
-        `This is quite delightful, but a sprinkle more [waves](${randomYoutubeLink}) would elevate it 🌊`,
-        `This is rather charming, yet a splash more [waves](${randomYoutubeLink}) could really make it pop 🌊`,
+        `This is quite delightful, but a sprinkle more of [waves](${randomYoutubeLink}) would elevate it 🌊`,
+        `This is rather charming, yet a splash more of [waves](${randomYoutubeLink}) could really make it pop 🌊`,
         `This is lovely, but a surge of [waves](${randomYoutubeLink}) would truly amplify its beauty 🌊`,
         `This is nice, yet a ripple of [waves](${randomYoutubeLink}) would add an enchanting touch 🌊`,
         `This is quite appealing, but a wave of [waves](${randomYoutubeLink}) would bring it to life 🌊`,
