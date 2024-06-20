@@ -1,11 +1,11 @@
-name: "Hello"
+name: "Waver"
 
 on:
   pull_request:
     types: [opened]
 
 jobs:
-  hello:
+  wave:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
