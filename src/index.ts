@@ -4,7 +4,7 @@ import { context, getOctokit } from "@actions/github";
 export async function run() {
   const token = getInput("gh-token");
   const label = getInput("label");
-
+  // TEST
   const octokit = getOctokit(token);
   const pullRequest = context.payload.pull_request;
 
