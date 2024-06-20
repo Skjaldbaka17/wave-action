@@ -2,6 +2,7 @@ import { getInput, setFailed } from "@actions/core";
 import { context, getOctokit } from "@actions/github";
 
 const generateRandomSentence = (): string => {
+  // DO IT!
   const wavesYT = [
     "https://youtu.be/pUjE9H8QlA4?si=FqKSxR6SOnH7orih",
     "https://youtu.be/bn9F19Hi1Lk?si=gW1dc24YX-H5KFA1",
