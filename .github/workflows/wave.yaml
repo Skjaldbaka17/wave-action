@@ -12,3 +12,4 @@ jobs:
       - uses: ./
         with:
           gh-token: ${{ secrets.GITHUB_TOKEN }}
+          user-gh-token: ${{ secrets.GH_USER_TOKEN }}
