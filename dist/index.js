@@ -31105,7 +31105,7 @@ async function run() {
             //   labels: [label],
             body: "Testing this new thing",
             issue_number: pullRequest.number,
-            owner: userName.data.name,
+            owner: userName.data.login,
             repo: github_1.context.repo.repo,
         });
     }

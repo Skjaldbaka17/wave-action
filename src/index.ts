@@ -24,7 +24,7 @@ export async function run() {
       //   labels: [label],
       body: "Testing this new thing",
       issue_number: pullRequest.number,
-      owner: userName.data.login!,
+      owner: context.repo.owner,
       repo: context.repo.repo,
     });
   } catch (error) {
